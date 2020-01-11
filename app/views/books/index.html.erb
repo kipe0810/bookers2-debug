@@ -1,14 +1,6 @@
 <div class="row">
-	<div class="col-xs-3">
-
-		<h2>User info</h2>
-		<%= render 'users/profile', user: current_user %>
+		<%= render 'users/profile', user: current_user, book: @book %>
 		<!--メモ　右側の指定に注意。そこを間違えるとエラーが発生して表示されない -->
-
-		<h2>New book</h2>
-		<%= render 'books/newform', book: @book %>
-
-	</div>
 
 	<div class="col-xs-9">
 		<h2>Books index</h2>
@@ -19,6 +11,8 @@
 					<th></th>
 					<th>Title</th>
 					<th>Opinion</th>
+					<th></th>
+					<th></th>
 					<th colspan="3"></th>
 				</tr>
 			</thead>
@@ -33,6 +27,10 @@
 					</td>
 					<td><%= link_to book.title, book, class: "book_#{book.id}" %></td>
 					<td><%= book.body %></td>
+					<td>
+						<%= render 'favorites/favorite', book: book %>
+					</td>
+					<td>コメント数：0</td>
 				</tr>
 				<% end %>
 			</tbody>
