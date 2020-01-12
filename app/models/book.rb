@@ -9,4 +9,14 @@ class Book < ApplicationRecord
           favorites.where(user_id: user.id).exists?
         end
     has_many :book_comments, dependent: :destroy
+
+    def self.search(search)
+    	if search
+    		title = Book.where(['title LIKE ?', "%#{search}%"])
+    		body = Book.where(['body LIKE ?', "%#{search}%"])
+    		title | body
+    	else
+    		Book.all
+    	end
+    end
 end

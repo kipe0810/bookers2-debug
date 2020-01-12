@@ -26,12 +26,16 @@
 						<tr>
 							<td>コメント数：<%= @book.book_comments.count %></td>
 						</tr>
+						<tr>
+							<td>
+								<% if @book.user == current_user %>
+									<%= link_to "Edit",edit_book_path(@book), class: "btn-sm btn-success edit_book_#{@book.id}" %>
+									<%= link_to "Destroy",@book, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_book_#{@book.id}" %>
+								<% end %>
+							</td>
+						</tr>
 					</tbody>
 				</table>
-				<% if @book.user == current_user %>
-					<td><%= link_to "Edit",edit_book_path(@book), class: "btn-sm btn-success edit_book_#{@book.id}" %></td>
-					<td><%= link_to "Destroy",@book, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_book_#{@book.id}" %></td>
-				<% end %>
 			</div>
 
 			<div style='text-align: center; margin-bottom: 30px;'>

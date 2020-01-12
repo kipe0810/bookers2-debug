@@ -1,0 +1,29 @@
+
+<div class="container">
+	<div class="row">
+			<%= render 'users/profile', user: current_user, book: @book %>
+			<!--メモ　右側の指定に注意。そこを間違えるとエラーが発生して表示されない -->
+
+		<div class="col-xs-9">
+			<h2>Search results</h2>
+
+			<% if @model == "User" %>
+				<% if @search.blank? %>
+				    <h4><strong>全件表示しています</strong></h4>
+				    <%= render 'users/user_index', users: @users %>
+				<% else %>
+				    <h4><strong>"<%= @search %>"の検索結果</strong></h4>
+				    <%= render 'users/user_index', users: @searching %>
+				<% end %>
+			<% elsif @model == "Book" %>
+				<% if @search.blank? %>
+				    <h4><strong>全件表示しています</strong></h4>
+				    <%= render 'books/book_index', books: @books %>
+				<% else %>
+				    <h4><strong>"<%= @search %>"の検索結果</strong></h4>
+					<%= render 'books/book_index', books: @searching %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>
