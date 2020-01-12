@@ -21,7 +21,11 @@
 							<td><%= @book.body %></td>
 						</tr>
 						<tr>
-							<td><%= render 'favorites/favorite', book: @book %></td>
+							<td>
+								<div id="favorites_buttons_<%= @book.id %>">
+								<%= render 'favorites/favorite', book: @book %>
+								</div>
+							</td>
 						</tr>
 						<tr>
 							<td>コメント数：<%= @book.book_comments.count %></td>
