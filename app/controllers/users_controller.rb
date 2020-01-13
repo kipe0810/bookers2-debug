@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
   	@books = @user.books
-  	@book = Book.new #new bookの新規投稿で必要（保存処理はbookコントローラー側で実施）
+    @book = Book.find(params[:id])
+  	@book2 = Book.new #new bookの新規投稿で必要（保存処理はbookコントローラー側で実施）
   end
 
   def index

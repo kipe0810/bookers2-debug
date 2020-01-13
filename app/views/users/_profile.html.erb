@@ -15,9 +15,11 @@
 			</tr>
 			<tr>
 				<th>
-					<%=link_to "フォロー", follows_user_path(user.id) %><%= user.followings.count %> |
-					<%=link_to "フォロワー", followers_user_path(user.id) %><%= user.followers.count %>
+					<%=link_to "フォロー", follows_user_path(user.id) %><%= user.followings.count %>
 				</th>
+				<td><strong>
+					<%=link_to "フォロワー", followers_user_path(user.id) %><%= user.followers.count %>
+				</strong></td>
 			</tr>
 	</table>
 
