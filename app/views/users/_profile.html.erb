@@ -6,13 +6,23 @@
 
 			<tr>
 				<th>name</th>
-				<th><%= user.name %></th>
+				<td><%= user.name %></td>
 			</tr>
 
 			<tr>
 				<th>introduction</th>
-				<th><%= user.introduction %></th>
+				<td><%= user.introduction %></td>
 			</tr>
+			<% if user == current_user %>
+			  <tr>
+			  	<th>postalcode</th>
+			  	<td><%= user.postal_code %></td>
+			  </tr>
+			  <tr>
+			  	<th>address</th>
+			  	<td><%= user.prefecture %><%= user.city %><%= user.street %></td>
+			  </tr>
+			 <% end %>
 			<tr>
 				<th>
 					<%=link_to "フォロー", follows_user_path(user.id) %><%= user.followings.count %>

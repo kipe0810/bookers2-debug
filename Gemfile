@@ -80,3 +80,5 @@ gem "refile-mini_magick"
 gem 'jquery-rails'
 
 gem 'font-awesome-rails'
+
+gem 'jp_prefecture'

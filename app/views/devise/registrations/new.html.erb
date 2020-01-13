@@ -15,6 +15,29 @@
     <%= f.email_field :email, autocomplete: "email", class: "email" %>
   </div>
 
+<!--====================== 住所入力部分 =======================-->
+  <div class="field">
+    <%= f.label :user_postal_code %><br />
+    <%= f.text_field :postal_code, autocomplete: "postal_code" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :prefecture %><br />
+    <%= f.collection_select :prefecture, JpPrefecture::Prefecture.all, :name, :name, id: "user_prefecture" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city, autocomplete: "city", id: "user_city" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_street %>s<br />
+    <%= f.text_field :street, autocomplete: "street", id: "user_street" %>
+  </div>
+
+  <!--========================================================-->
+
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
