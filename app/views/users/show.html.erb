@@ -41,24 +41,24 @@
 	</div>
 </div>
 <!--books一覧 -->
+<% if @user == current_user %>
+	<div class="container">
+		<div class="row">
+			<h2>gmap</h2>
+	<!-- 		<input id="address" type="textbox" value="Sydney, NSW">
+	 -->
+			<!-- buttonをクリックしたらcodeAddressを実行　-->
+	<div id='map' class="<%= @user.user_address %>">
+			</div>
 
-<div class="container">
-	<div class="row">
-		<h2>gmap</h2>
-<!-- 		<input id="address" type="textbox" value="Sydney, NSW">
- -->
-		<!-- buttonをクリックしたらcodeAddressを実行　-->
-<div id='map' class="<%= @user.user_address %>">
+			<style>
+			#map{
+			  height: 400px;
+			}
+			</style>
+
+			<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&callback=initMap" async defer></script>
 		</div>
-
-		<style>
-		#map{
-		  height: 400px;
-		}
-		</style>
-
-		
-		<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&callback=initMap" async defer></script>
 	</div>
-</div>
+<% end %>
 
